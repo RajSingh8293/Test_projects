@@ -42,6 +42,9 @@ const Navbar = () => {
                             <Link to="/Shop" className=" font-bold block px-2 py-1">Shop</Link>
                         </li>
                         <li>
+                            <Link to="/about" className=" font-bold block px-2 py-1">About</Link>
+                        </li>
+                        <li>
                             <Link to="/" className=" font-bold block px-2 py-1">Services</Link>
                         </li>
                         <li>

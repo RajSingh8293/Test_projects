@@ -1,10 +1,23 @@
 /* eslint-disable react/prop-types */
 
-
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 const Modal = ({ isOpen, onClose, children, width, height, color, placement }) => {
   const contentRef = useRef(null);
-  console.log("children :", children);
+
+  const [showModal, setShowModal] = useState(isOpen);
+
+  const handleClose = () => {
+    onClose();
+    setTimeout(() => {
+      setShowModal(false);
+    }, 500);
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      setShowModal(true);
+    }
+  }, [isOpen]);
 
   if (contentRef.current) {
     contentRef.current.innerHTML = children;
@@ -15,14 +28,20 @@ const Modal = ({ isOpen, onClose, children, width, height, color, placement }) =
     background: color || "#fff"
   }
 
+  console.log(size, placement);
+
   if (!isOpen) return null;
+
+
   return (
     <>
-      <div id="modalOverLay" className={`modal modal-${placement} fixed inset-0 flex items-center justify-center z-50 `}>
-        <div id="modalContaent" className="overflow-auto rounded-lg shadow-lg transform transition-transform duration-300 ease-in-out scale-100 animate-open " style={size}>
+      {showModal && <div id="modalOverLay" className={`modal ${isOpen ? `open` : `closed`} modal-${placement} fixed inset-0 flex items-center justify-center z-50 duration-300 `}>
+        <div className={`animate-open transition-transform transform ${isOpen ? 'scale-100 translate-y-0' : 'scale-95 -translate-y-10'} duration-1000`} style={size}>
+          {/* <div id="modalContaent" className="popUpBox "> */}
           <button
-            onClick={onClose}
-            className=" fixed animate-close top-3 right-4 px-4 py-2 bg-black text-white text-base font-medium rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 "
+            // onClick={onClose}
+            onClick={handleClose}
+            className=" fixed  top-3 right-4 px-4 py-2 bg-black text-white hover:bg-gray-600"
           >
             X
           </button>
@@ -30,7 +49,7 @@ const Modal = ({ isOpen, onClose, children, width, height, color, placement }) =
             {children}
           </div>
         </div>
-      </div >
+      </div >}
 
 
     </>

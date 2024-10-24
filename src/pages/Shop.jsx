@@ -1,12 +1,21 @@
 /* eslint-disable no-unused-vars */
 import { products } from "@/data";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const Shop = () => {
 
     const [productsData, setProductsData] = useState(products);
     const dragItem = useRef()
     const dragOverItem = useRef()
 
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, []);
     const handleSort = () => {
         let products = [...productsData]
         const movedItem = products.splice(dragItem.current, 1)[0];
@@ -27,7 +36,8 @@ const Shop = () => {
                             onDragStart={(e) => dragItem.current = index}
                             onDragEnter={(e) => dragOverItem.current = index}
                             onDragEnd={handleSort}
-                            className="product-card"
+                            className={`product-card delay-150 transition-transform transfor rounded-lg shadow-lg p-6 m-4 ${isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+                                }`}
                         >
                             <h2 className="text-2xl">{product.id}</h2>
                             <div>
@@ -50,3 +60,11 @@ const Shop = () => {
 };
 
 export default Shop;
+
+
+
+
+
+
+
+
