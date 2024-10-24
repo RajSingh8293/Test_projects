@@ -1,0 +1,125 @@
+.shop_hero{
+  background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  width: 100%;
+  height: 100vh;
+  background-position:center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.hero_cards{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.modal{
+  width: 100%;
+  height: 100%;
+}
+  .modal-top {
+    top: 10%;
+    transform: translateY(0); 
+  }
+  
+  .modal-bottom {
+    bottom: 10%;
+    transform: translateY(0);
+  }
+  
+  .modal-left {
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%); 
+  }
+  
+  .modal-right {
+    right: 10%;
+    top: 10%;
+  }
+  
+  .modal-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+  }
+
+  @keyframes slide-down {
+    from {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  
+
+
+  /* modal *****************************
+   */
+
+   @keyframes open {
+    0% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+   @keyframes modal {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+  }
+  
+  .animate-open {
+    animation: open 0.3s forwards;
+  }
+  .animate-close {
+    animation: modal 0.3s backwards;
+  }
+
+
+  /* ********************* card *************************  */
+  .product-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .product-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    background-color: orange;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .product-card:hover {
+    background-color: skyblue;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);   
+  }
+  
+
+
+

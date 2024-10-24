@@ -1,0 +1,42 @@
+export const products = [
+  {
+    id: 1,
+    name: "Wireless Mouse",
+    price: 25.99,
+    category: "Electronics",
+    inStock: true,
+    description: "A smooth and responsive wireless mouse.",
+  },
+  {
+    id: 2,
+    name: "Bluetooth Headphones",
+    price: 59.99,
+    category: "Electronics",
+    inStock: false,
+    description: "Noise-cancelling over-ear Bluetooth headphones.",
+  },
+  {
+    id: 3,
+    name: "Yoga Mat",
+    price: 19.99,
+    category: "Fitness",
+    inStock: true,
+    description: "Durable and non-slip yoga mat.",
+  },
+  {
+    id: 4,
+    name: "Coffee Maker",
+    price: 89.99,
+    category: "Kitchen",
+    inStock: true,
+    description: "Programmable coffee maker with a glass carafe.",
+  },
+  {
+    id: 5,
+    name: "Backpack",
+    price: 39.99,
+    category: "Fashion",
+    inStock: true,
+    description: "Stylish and functional backpack for everyday use.",
+  },
+];
